@@ -590,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &177908445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,7 +847,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1483994787}
         m_TargetAssemblyTypeName: Photon_launcher, Assembly-CSharp
-        m_MethodName: LeaveRoom
+        m_MethodName: startGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4146,6 +4146,7 @@ MonoBehaviour:
   PlayerListPrefab: {fileID: 4987570543677991524, guid: a650fa2bc9defa64a825879bb83a0c5a, type: 3}
   player_name: {fileID: 0}
   player_list: {fileID: 626481401}
+  startGameButton: {fileID: 442826288}
 --- !u!114 &1483994788
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     public string MenuName;
-
     public bool open;
     public void Open()
     {

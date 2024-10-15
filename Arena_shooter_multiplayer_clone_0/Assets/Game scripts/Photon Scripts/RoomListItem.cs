@@ -6,8 +6,7 @@ using TMPro;
 public class RoomListItem : MonoBehaviour
 {
     [SerializeField] TMP_Text Room_name_text;
-    RoomInfo info;
-
+    public RoomInfo info;
     public void SetUp(RoomInfo _info)
     {
         info = _info;
