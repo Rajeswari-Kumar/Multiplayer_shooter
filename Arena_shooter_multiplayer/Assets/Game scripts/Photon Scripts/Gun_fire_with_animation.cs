@@ -38,8 +38,7 @@ public class Gun_fire_with_animation : MonoBehaviour
         if (gunAnimator == null)
             gunAnimator = GetComponentInChildren<Animator>();
         grabbable = GetComponent<XRGrabInteractable>();
-        grabbable.activated.AddListener(Shoot);
-        grabbable.activated.AddListener(CasingRelease);
+        
 
     }
 
@@ -50,7 +49,9 @@ public class Gun_fire_with_animation : MonoBehaviour
         {
             float float_val = right_trigger.action.ReadValue<float>();
             grabbable.activated.AddListener(gunAnimation);
-            Debug.Log("Fltval " + float_val);
+            //grabbable.activated.AddListener(Shoot);
+            //grabbable.activated.AddListener(CasingRelease);
+            //Debug.Log("Fltval " + float_val);
         }
     }
 
@@ -71,7 +72,7 @@ public class Gun_fire_with_animation : MonoBehaviour
             {
                 //Create the muzzle flash
                 GameObject tempFlash;
-                tempFlash = PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "Fire flash"), barrelLocation.position, barrelLocation.rotation);
+                tempFlash = PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "MuzzleFlashFire"), barrelLocation.position, barrelLocation.rotation);
                 //FindObjectOfType<AudioManager_script>().Play("Gun shot");
                 //Destroy the muzzle flash effect
                 Destroy(tempFlash, destroyTimer);

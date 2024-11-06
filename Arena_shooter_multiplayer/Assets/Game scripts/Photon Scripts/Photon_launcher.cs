@@ -150,4 +150,8 @@ public class Photon_launcher : MonoBehaviourPunCallbacks
     {
         Instantiate(PlayerListPrefab, PlayerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
     }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+    }
 }

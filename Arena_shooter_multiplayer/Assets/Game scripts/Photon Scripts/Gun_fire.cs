@@ -8,29 +8,32 @@ public class Gun_fire : MonoBehaviour
 {
     public bool gun_in_hand = false;
     PhotonView PV;
-    public Animate_hand_using_input trigger_val;
-    Transform fire_point;
-    public string Fire_point_name;
+    Animate_hand_using_input trigger_val;
+    public GameObject fire_point;
     public float force;
+    public int Gun_inventory_ = 10;
+    public Animator Animator;
+
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        fire_point = GameObject.Find("Fire point")?.transform;
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gun_in_hand && PV.IsMine)
+        if (Input.GetMouseButtonDown(0) && gun_in_hand)
         {
             Debug.Log("Fire");
-            fire_bullet();
+            StartCoroutine("Shoot");
+            GetComponent<OwnershipRequestHandler>().RequestOwnership();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Gun"))
+        if (other.CompareTag("Hand"))
         {
             gun_in_hand = true;
+            Debug.Log("gun in hand");
         }
         else
         {
@@ -41,9 +44,16 @@ public class Gun_fire : MonoBehaviour
     {
         gun_in_hand = false;
     }
-    public void fire_bullet()
+
+
+    public IEnumerator Shoot()
     {
-        GameObject bullet = PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "Bullet"), fire_point.position , Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().AddForce(fire_point.forward * force);
+            Animator.SetBool("Fire", true);
+            GameObject bullet = PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "Bullet"), fire_point.transform.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().AddForce(fire_point.transform.forward * force);
+            yield return new WaitForSeconds(0.5f);
+            Animator.SetBool("Fire", false);
+            yield return new WaitForSeconds(1);
+            PhotonNetwork.Destroy(bullet);
     }
 }

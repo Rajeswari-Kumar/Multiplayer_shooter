@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 using System.IO;
+using Photon.Realtime;
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance;
@@ -51,4 +52,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         
     }
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+   
 }

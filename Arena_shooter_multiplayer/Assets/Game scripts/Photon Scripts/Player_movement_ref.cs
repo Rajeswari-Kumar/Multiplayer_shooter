@@ -9,10 +9,11 @@ public class Player_movement_ref : MonoBehaviour
     public Transform head;
     public Transform lefthand;
     public Transform righthand;
-
+    PlayerManager playerManager;
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
     }
     void Start()
     {
@@ -33,5 +34,28 @@ public class Player_movement_ref : MonoBehaviour
             lefthand.transform.rotation = VRRigReference.instance.lefthand.rotation;
             righthand.transform.rotation = VRRigReference.instance.righthand.rotation;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        PV.RPC("RPC_takeDamage", RpcTarget.All, damage);
+    }
+
+    [PunRPC]
+    void RPC_takeDamage(int damage, int lifeline)
+    {
+        if (PV.IsMine)
+        {
+            return;
+        }
+        lifeline -= damage;
+        if (lifeline <= 0)
+            Die();
+        Debug.Log("damage" + damage);
+    }
+
+    void Die()
+    {
+        playerManager.Die();
     }
 }
