@@ -712,10 +712,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun_in_hand: 0
+  PV: {fileID: 6432720839934750915}
   fire_point: {fileID: 4686068316716098477}
-  force: 3
+  force: 5000
   Gun_inventory_: 10
   Animator: {fileID: 2512605298526380845}
+  trigger:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Trigger
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 76a8a781-2814-4775-b036-0c84c81f0740
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  photonViewID: 0
 --- !u!114 &619595338220938080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,6 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca4dda496d317b4981be298c446489e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PV: {fileID: 6432720839934750915}
 --- !u!1001 &7466442093439929224
 PrefabInstance:
   m_ObjectHideFlags: 0

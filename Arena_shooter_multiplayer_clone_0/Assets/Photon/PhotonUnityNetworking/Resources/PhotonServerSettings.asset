@@ -40,6 +40,11 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_takeDamage
+  - Die
+  - Shoot_RPC
+  - PlayFireAnimationRPC
+  - Shoot
+  - request_ownership
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System.IO;
+using UnityEngine.Rendering;
+using Unity.Netcode;
 public class PlayerManager : MonoBehaviour
 {
     PhotonView PV;
-    GameObject controller;
+    public GameObject controller;
+    Transform spawnpoint;
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -22,19 +25,26 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
-    void CreateController()
+    public void CreateController()
     {
          //Instantiate controller for players
-        controller =  PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs" , "Player"), Vector3.zero,Quaternion.identity,0, new object[] {PV.ViewID});
+        controller =  PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs" , "Player"),new Vector3(1,0,0),Quaternion.identity,0, new object[] {PV.ViewID});
     }
+     [PunRPC]
     public void Die()
     {
-        PhotonNetwork.Destroy(controller);
-
+        if(controller == null)
+        {
+            Debug.Log("no player");
+            return;
+        }
+        Destroy(controller);
+        
+        Debug.Log("dead");
         //respawn
-        CreateController();
+        //CreateController();
     }
 }

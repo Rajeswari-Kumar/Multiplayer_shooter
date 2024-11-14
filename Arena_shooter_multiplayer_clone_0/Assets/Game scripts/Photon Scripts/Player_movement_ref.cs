@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 public class Player_movement_ref : MonoBehaviour
 {
     VRRigReference VRRigReference;
@@ -10,6 +11,9 @@ public class Player_movement_ref : MonoBehaviour
     public Transform lefthand;
     public Transform righthand;
     PlayerManager playerManager;
+    public Player_lifeline lifeline;
+    public float targetXPosition = 2f;
+    public float movementSpeed = 2f;
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -36,26 +40,31 @@ public class Player_movement_ref : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         PV.RPC("RPC_takeDamage", RpcTarget.All, damage);
     }
 
     [PunRPC]
-    void RPC_takeDamage(int damage, int lifeline)
+    void RPC_takeDamage(int damage)
     {
         if (PV.IsMine)
         {
             return;
         }
-        lifeline -= damage;
-        if (lifeline <= 0)
+        lifeline.lifeline -= damage;
+        if (lifeline.lifeline <= 0)
             Die();
         Debug.Log("damage" + damage);
     }
 
-    void Die()
+    public void Die()
     {
-        playerManager.Die();
+        //playerManager.Die();
+        //playerManager.GetComponent<PhotonView>().RPC("Die", RpcTarget.All);
+
+        lifeline.GetComponent<PhotonView>().RPC("Die", RpcTarget.All);
+        //PhotonNetwork.LeaveRoom();
+        Menu_Manager.instance.OpenMenu("Loading");
     }
 }

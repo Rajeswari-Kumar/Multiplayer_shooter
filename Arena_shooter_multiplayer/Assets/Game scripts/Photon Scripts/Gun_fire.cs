@@ -7,27 +7,45 @@ using System.IO;
 public class Gun_fire : MonoBehaviour
 {
     public bool gun_in_hand = false;
-    PhotonView PV;
+    public PhotonView PV;
     Animate_hand_using_input trigger_val;
     public GameObject fire_point;
     public float force;
     public int Gun_inventory_ = 10;
     public Animator Animator;
-
+    public InputActionProperty trigger;
+    public int photonViewID;
     void Start()
     {
-        PV = GetComponent<PhotonView>();
+        photonViewID = PV.ViewID;
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gun_in_hand)
+       
+    }
+    public void shoot_gun()
+    {
+        if (gun_in_hand && PV.IsMine)
         {
             Debug.Log("Fire");
-            StartCoroutine("Shoot");
-            GetComponent<OwnershipRequestHandler>().RequestOwnership();
+            PV.RPC("Shoot", RpcTarget.All, photonViewID);
+            GetComponent<Rigidbody>().isKinematic = true;
         }
+        else
+            GetComponent<Rigidbody>().isKinematic = false;
+
+        
     }
 
+    [PunRPC]
+    public void request_ownership(int photonViewID)
+    {
+        if (PV.ViewID != photonViewID)
+        {
+            return;
+        }
+        GetComponent<OwnershipRequestHandler>().RequestOwnership();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Hand"))
@@ -44,16 +62,37 @@ public class Gun_fire : MonoBehaviour
     {
         gun_in_hand = false;
     }
-
-
-    public IEnumerator Shoot()
+    [PunRPC]
+    public IEnumerator Shoot(int photonViewID)
     {
-            Animator.SetBool("Fire", true);
-            GameObject bullet = PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "Bullet"), fire_point.transform.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().AddForce(fire_point.transform.forward * force);
+        if (PV.ViewID != photonViewID)
+            yield break;
+        if (PV.IsMine)
+        {
+            PV.RPC("Shoot_RPC", RpcTarget.All,photonViewID);
             yield return new WaitForSeconds(0.5f);
-            Animator.SetBool("Fire", false);
-            yield return new WaitForSeconds(1);
+            PV.RPC("PlayFireAnimationRPC", RpcTarget.All, false);
+        }
+    }
+
+    [PunRPC]
+    public IEnumerator Shoot_RPC(int photonViewID)
+    {
+        if(PV.ViewID != photonViewID)
+            yield break;
+        if (PV.IsMine)
+        {
+            GameObject bullet = PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "Bullet"), fire_point.transform.position, Quaternion.identity);
+            PV.RPC("PlayFireAnimationRPC", RpcTarget.All, true);
+            bullet.GetComponent<Rigidbody>().AddForce(fire_point.transform.forward * force);
+            yield return new WaitForSeconds(2);
             PhotonNetwork.Destroy(bullet);
+        }
+    }
+    [PunRPC]
+    public void PlayFireAnimationRPC(bool isFiring)
+    {
+        if(PV.IsMine)
+        Animator.SetBool("Fire", isFiring);
     }
 }

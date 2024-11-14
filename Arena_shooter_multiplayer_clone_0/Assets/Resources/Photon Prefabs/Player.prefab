@@ -50,6 +50,9 @@ MonoBehaviour:
   head: {fileID: 6389946894454064751}
   lefthand: {fileID: 1880099265152373396}
   righthand: {fileID: 779038289827784103}
+  lifeline: {fileID: 5488977070783706674}
+  targetXPosition: 2
+  movementSpeed: 2
 --- !u!114 &4951372850731800491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +69,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 0
   ObservedComponents:
   - {fileID: 8651122300806215831}
@@ -198,10 +201,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun_in_hand: 0
+  PV: {fileID: 0}
   fire_point: {fileID: 0}
   force: 0
   Gun_inventory_: 10
   Animator: {fileID: 0}
+  trigger:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 7c9113d6-edb0-476d-895a-f9852625e9bd
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  photonViewID: 0
 --- !u!1 &2514713902407786678
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,10 +937,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun_in_hand: 0
+  PV: {fileID: 0}
   fire_point: {fileID: 0}
   force: 0
   Gun_inventory_: 10
   Animator: {fileID: 0}
+  trigger:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5ec980f6-f15e-443a-ae89-7a3c251e310e
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  photonViewID: 0
 --- !u!1001 &2585071724819519246
 PrefabInstance:
   m_ObjectHideFlags: 0

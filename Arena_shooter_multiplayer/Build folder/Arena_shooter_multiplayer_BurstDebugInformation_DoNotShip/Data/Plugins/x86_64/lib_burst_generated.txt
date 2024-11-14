@@ -51,6 +51,7 @@ Library: D:\Github folders\Multiplayer_shooter\Arena_shooter_multiplayer\Temp\Bu
 --assembly-defines=Unity.Services.Core.Environments;
 --assembly-defines=Unity.Multiplayer.Tools.NetStats;
 --assembly-defines=Unity.Netcode.Runtime;
+--assembly-defines=PhotonUnityNetworking.Demos;
 --assembly-defines=PhotonUnityNetworking.Utilities;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.Services.Core.Analytics;
@@ -215,6 +216,7 @@ Library: D:\Github folders\Multiplayer_shooter\Arena_shooter_multiplayer\Temp\Bu
 --assembly-defines=Unity.Services.Core.Environments;
 --assembly-defines=Unity.Multiplayer.Tools.NetStats;
 --assembly-defines=Unity.Netcode.Runtime;
+--assembly-defines=PhotonUnityNetworking.Demos;
 --assembly-defines=PhotonUnityNetworking.Utilities;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.Services.Core.Analytics;
@@ -379,6 +381,7 @@ Library: D:\Github folders\Multiplayer_shooter\Arena_shooter_multiplayer\Temp\Bu
 --assembly-defines=Unity.Services.Core.Environments;
 --assembly-defines=Unity.Multiplayer.Tools.NetStats;
 --assembly-defines=Unity.Netcode.Runtime;
+--assembly-defines=PhotonUnityNetworking.Demos;
 --assembly-defines=PhotonUnityNetworking.Utilities;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.Services.Core.Analytics;
@@ -594,6 +597,7 @@ Library: D:\Github folders\Multiplayer_shooter\Arena_shooter_multiplayer\Temp\Bu
 --assembly-defines=Unity.Services.Core.Environments;
 --assembly-defines=Unity.Multiplayer.Tools.NetStats;
 --assembly-defines=Unity.Netcode.Runtime;
+--assembly-defines=PhotonUnityNetworking.Demos;
 --assembly-defines=PhotonUnityNetworking.Utilities;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.Services.Core.Analytics;

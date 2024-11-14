@@ -2,9 +2,11 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OwnershipRequestHandler : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
 {
+    public PhotonView PV;
     private void Start()
     {
         // Register this script to receive ownership callbacks
@@ -19,7 +21,11 @@ public class OwnershipRequestHandler : MonoBehaviourPunCallbacks, IPunOwnershipC
 
     private void OnMouseDown()
     {
-        RequestOwnership();
+        //RequestOwnership();
+    }
+    private void Update()
+    {
+       
     }
 
     public void RequestOwnership()
@@ -29,11 +35,13 @@ public class OwnershipRequestHandler : MonoBehaviourPunCallbacks, IPunOwnershipC
             Debug.Log("Already owning the PhotonView.");
             return;
         }
-        base.photonView.RequestOwnership();
+        PV.RequestOwnership();
     }
     // Called when a client requests ownership of a PhotonView
     public void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
     {
+        if (targetView.ViewID != PV.ViewID)
+            return;
         // Only the master client should handle ownership requests
         if (PhotonNetwork.IsMasterClient)
         {
@@ -50,6 +58,8 @@ public class OwnershipRequestHandler : MonoBehaviourPunCallbacks, IPunOwnershipC
     // Called when ownership is successfully transferred
     public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
     {
+        if (targetView.ViewID != PV.ViewID)
+            return;
         Debug.Log($"Ownership of {targetView.ViewID} transferred from {previousOwner.NickName} to {targetView.Owner.NickName}");
     }
 

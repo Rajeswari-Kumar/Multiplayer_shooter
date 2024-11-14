@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using Unity.VisualScripting;
 public class Player_lifeline : MonoBehaviourPun
 {
     public int lifeline = 10;
@@ -22,7 +23,8 @@ public class Player_lifeline : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        
+        //if (lifeline == 0)
+          // PV.RPC("Die", RpcTarget.All);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -36,5 +38,10 @@ public class Player_lifeline : MonoBehaviourPun
            FindObjectOfType<Player_movement_ref>().TakeDamage(1);
            player_lifeline.text = lifeline.ToString();
         }
+    }
+    [PunRPC]
+    public void Die()
+    {
+        Destroy(this.transform.parent.parent.gameObject);
     }
 }
