@@ -13,7 +13,6 @@ public class Gun_fire : MonoBehaviour
     public float force;
     public int Gun_inventory_ = 10;
     public Animator Animator;
-    public InputActionProperty trigger;
     public int photonViewID;
     void Start()
     {
@@ -33,10 +32,7 @@ public class Gun_fire : MonoBehaviour
         }
         else
             GetComponent<Rigidbody>().isKinematic = false;
-
-        
     }
-
     [PunRPC]
     public void request_ownership(int photonViewID)
     {

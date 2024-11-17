@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Game Scenes/Photon test scene.unity
     guid: 89bc6abbfdabdd649b67833ce766a934
   - enabled: 1
+    path: Assets/Flooded_Grounds/Scenes/Scene_A.unity
+    guid: c0d944ca9defd20449bc336e50d75a08
+  - enabled: 1
     path: Assets/Game Scenes/Start scene.unity
     guid: 5df8ce713a8e57942b655265ee34afa0
   m_configObjects:
