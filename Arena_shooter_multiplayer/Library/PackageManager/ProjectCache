@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638664660594093535
-    m_Hash: 1774422341
+      ticks: 638675039431587953
+    m_Hash: 289380804
   m_LockFileStatus:
     m_FilePath: D:/Github folders/Multiplayer_shooter/Arena_shooter_multiplayer/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638664660594169329
-    m_Hash: 174245456
+      ticks: 638675039431675212
+    m_Hash: 250355046
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,6 +22,74 @@ m_LocalPackages:
 m_ProjectPath: D:/Github folders/Multiplayer_shooter/Arena_shooter_multiplayer/Packages
 m_EditorVersion: 2022.3.25f1 (530ae0ba3889)
 m_ResolvedPackages:
+- packageId: com.simonoliver.unityfigma@https://github.com/simonoliver/UnityFigmaBridge.git
+  testable: 0
+  isDirectDependency: 1
+  version: 1.0.8
+  source: 5
+  resolvedPath: D:\Github folders\Multiplayer_shooter\Arena_shooter_multiplayer\Library\PackageCache\com.simonoliver.unityfigma@dbd12bff29
+  assetPath: Packages/com.simonoliver.unityfigma
+  name: com.simonoliver.unityfigma
+  displayName: Unity Figma Bridge
+  author:
+    name: Simon Oliver
+    email: 
+    url: https://www.simonoliver.com
+  category: 
+  type: library
+  description: Tool to build Figma documents and Assets as native Unity UI
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies:
+  - name: com.unity.nuget.newtonsoft-json
+    version: 2.0.1-preview.1
+  - name: com.unity.textmeshpro
+    version: 2.0.1
+  resolvedDependencies:
+  - name: com.unity.nuget.newtonsoft-json
+    version: 3.2.1
+  - name: com.unity.textmeshpro
+    version: 3.0.6
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  keywords:
+  - unity
+  - figma
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
 - packageId: com.unity.collab-proxy@2.3.1
   testable: 0
   isDirectDependency: 1
@@ -1534,6 +1602,7 @@ m_ResolvedPackages:
     - 3.0.4
     - 3.0.5
     - 3.0.6
+    - 3.0.7
     compatible:
     - 2.5.2
     - 2.5.3
@@ -1547,6 +1616,7 @@ m_ResolvedPackages:
     - 3.0.4
     - 3.0.5
     - 3.0.6
+    - 3.0.7
     recommended: 2.5.4
     deprecated: []
   dependencies:
@@ -1921,6 +1991,7 @@ m_ResolvedPackages:
     - 1.12.0
     - 1.12.1
     - 1.13.0
+    - 1.13.1
     compatible:
     - 1.10.0
     - 1.11.0-exp.1
@@ -1930,6 +2001,7 @@ m_ResolvedPackages:
     - 1.12.0
     - 1.12.1
     - 1.13.0
+    - 1.13.1
     recommended: 1.10.0
     deprecated: []
   dependencies:

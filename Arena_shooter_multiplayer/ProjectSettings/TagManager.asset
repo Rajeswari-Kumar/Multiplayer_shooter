@@ -8,6 +8,8 @@ TagManager:
   - Interactable
   - Bullet
   - Gun
+  - Player rig
+  - Big gun
   layers:
   - Default
   - TransparentFX

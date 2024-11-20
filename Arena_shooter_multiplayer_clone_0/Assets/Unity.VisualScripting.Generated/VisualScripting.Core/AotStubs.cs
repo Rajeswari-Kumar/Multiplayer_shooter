@@ -626,6 +626,9 @@ namespace Unity.VisualScripting.Generated.Aot
 	// Gun_fire_with_animation.op_Implicit
 	// Gun_fire_with_animation.op_Equality
 	// Gun_fire_with_animation.op_Inequality
+	// Inventory_manager.op_Implicit
+	// Inventory_manager.op_Equality
+	// Inventory_manager.op_Inequality
 	// Menu.op_Implicit
 	// Menu.op_Equality
 	// Menu.op_Inequality
@@ -8193,6 +8196,41 @@ namespace Unity.VisualScripting.Generated.Aot
 		// Gun_fire_with_animation.op_Inequality
 		[global::UnityEngine.Scripting.PreserveAttribute()]
 		public static void Gun_fire_with_animation_op_Inequality()
+		{
+			global::UnityEngine.Object arg0 = default(global::UnityEngine.Object);
+			global::UnityEngine.Object arg1 = default(global::UnityEngine.Object);
+			bool @operator = (arg0 != arg1);
+			global::Unity.VisualScripting.StaticFunctionInvoker<UnityEngine.Object, UnityEngine.Object, bool> optimized = new global::Unity.VisualScripting.StaticFunctionInvoker<UnityEngine.Object, UnityEngine.Object, bool>(default(global::System.Reflection.MethodInfo));
+			optimized.Invoke(null, arg0, arg1);
+			optimized.Invoke(default(object[]));
+		}
+		
+		// Inventory_manager.op_Implicit
+		[global::UnityEngine.Scripting.PreserveAttribute()]
+		public static void Inventory_manager_op_Implicit()
+		{
+			global::UnityEngine.Object arg0 = default(global::UnityEngine.Object);
+			bool conversion = ((bool)(arg0));
+			global::Unity.VisualScripting.StaticFunctionInvoker<UnityEngine.Object, bool> optimized = new global::Unity.VisualScripting.StaticFunctionInvoker<UnityEngine.Object, bool>(default(global::System.Reflection.MethodInfo));
+			optimized.Invoke(null, arg0);
+			optimized.Invoke(default(object[]));
+		}
+		
+		// Inventory_manager.op_Equality
+		[global::UnityEngine.Scripting.PreserveAttribute()]
+		public static void Inventory_manager_op_Equality()
+		{
+			global::UnityEngine.Object arg0 = default(global::UnityEngine.Object);
+			global::UnityEngine.Object arg1 = default(global::UnityEngine.Object);
+			bool @operator = (arg0 == arg1);
+			global::Unity.VisualScripting.StaticFunctionInvoker<UnityEngine.Object, UnityEngine.Object, bool> optimized = new global::Unity.VisualScripting.StaticFunctionInvoker<UnityEngine.Object, UnityEngine.Object, bool>(default(global::System.Reflection.MethodInfo));
+			optimized.Invoke(null, arg0, arg1);
+			optimized.Invoke(default(object[]));
+		}
+		
+		// Inventory_manager.op_Inequality
+		[global::UnityEngine.Scripting.PreserveAttribute()]
+		public static void Inventory_manager_op_Inequality()
 		{
 			global::UnityEngine.Object arg0 = default(global::UnityEngine.Object);
 			global::UnityEngine.Object arg1 = default(global::UnityEngine.Object);
